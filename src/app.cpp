@@ -1,5 +1,7 @@
-#include "app.h"
+#include <stdio.h>
+
 #include <Port.h>
+#include "app.h"
 
 #include "Decision/Decision.h"
 #include "Decision/DecisionSet.h"
@@ -41,7 +43,7 @@
 
 //------------------------------
 //  テスト有効/無効指定
-bool isTestEnable = true;
+bool isTestEnable = false;
 
 //------------------------------
 //  デストラクタ問題の回避
@@ -86,10 +88,17 @@ Run::TailController           gTailController;
 Test::Test gTest;
 
 Utility::LCDController gLCDController;
-Utility::Speaker gSpeaker;
+Utility::Speaker       gSpeaker;
 
 //------------------------------
 //  EV3システム生成
+static void setupDecision()
+{
+	gDecision.setCurrentDeviceInformation(&gCurrentDeviceInformation);
+	gDecision.setRunInformation(          &gRunInformation);
+	
+}
+
 static void setupInformation()
 {
 	int gyroOffset = 0;
@@ -139,6 +148,21 @@ static void setupMeasurement()
 	gMeasurement.setDeviceInformationUpdater(&gDeviceInformationUpdater);
 }
 
+static void setupRun()
+{
+	gTailController.setTailMotorDriver(&gTailMotorDriver);
+	gTailController.setPID(&gTailPID);
+	
+	gRun.setInvertedPendulumBalancer(&gInvertedPendulumBalancer);
+	gRun.setTailController(          &gTailController);
+	gRun.setRightMotorDriver(        &gRightMotorDriver);
+	gRun.setLeftMotorDriver(         &gLeftMotorDriver);
+	gRun.setCourseInformation(       &gCourseInformation);
+	gRun.setCurrentDeviceInformation(&gCurrentDeviceInformation);
+	gRun.setRunCorrectionInformation(&gRunCorrectionInformation);
+	gRun.setTailAngleInformation(    &gTailAngleInformation);
+}
+
 static void setupTest()
 {
 	gTest.setColorSensorDriver(&gColorSensorDriver);
@@ -153,26 +177,103 @@ static void setupTest()
 	gTest.setSpeaker(      &gSpeaker);
 }
 
-static void setupRun()
+static void setup(FILE*& file)
 {
-	gTailController.setTailMotorDriver(&gTailMotorDriver);
-	gTailController.setPID(&gTailPID);
+	static const int VALUE_ENABLE  = 1;
+	double kp, ki, kd, tailKp, tailKi, tailKd;
+	int forward, turnSelectionType, turn, brightnessOffset, formingCondition, numDecisionSet;
+	int isInvertedPendulumControlEnable, isStraigitCorrectionEnable, isTailControlEnable, tailAngleType;
+	while(fscanf(file, "%d, %lf,%lf,%lf, %d,%d,%d,%d, %d, %d,%d, %lf,%lf,%lf, %d, %d,",
+				 &isInvertedPendulumControlEnable, &kp,&ki,&kd, &forward,&turnSelectionType,&turn,&brightnessOffset,
+				 &isStraigitCorrectionEnable, &isTailControlEnable,&tailAngleType,
+				 &tailKp,&tailKi,&tailKd, &formingCondition, &numDecisionSet) != EOF)
+	{
+		Execute::Section* section = new Execute::Section();
+		section->setMeasurement(&gMeasurement);
+		section->setDecision(&gDecision);
+		section->setFormingCondition(static_cast<Decision::EFormingCondition>(formingCondition));
+		for(int i = 0; i < numDecisionSet; i++)
+		{
+			int decisionTarget, comparisonMode;
+			double threshold1, threshold2;
+			fscanf(file, "%d, %d, %lf, %lf,", &decisionTarget, &comparisonMode, &threshold1, &threshold2);
+			Decision::DecisionSet* decisionSet = new Decision::DecisionSet();
+			decisionSet->setDecisionTarget(static_cast<Decision::EDecisionTarget>(decisionTarget));
+			decisionSet->setComparisonMode(static_cast<Decision::EComparisonMode>(comparisonMode));
+			decisionSet->setThreshold1(threshold1);
+			decisionSet->setThreshold2(threshold2);
+			section->addDecisionSet(decisionSet);
+		}
+		section->setRun(&gRun);
+		Run::RunSet* runSet = new Run::RunSet();
+		{
+			runSet->setTailAngleType(static_cast<Information::ETailAngleType>(tailAngleType));
+			runSet->setTurnSelectionType(static_cast<Run::ETurnSelectionType>(turnSelectionType));
+			runSet->setIsInvertedPendulumControlEnable(isInvertedPendulumControlEnable == VALUE_ENABLE);
+			runSet->setIsStraightCorrectionEnable(isStraigitCorrectionEnable == VALUE_ENABLE);
+			runSet->setIsTailControlEnable(isTailControlEnable == VALUE_ENABLE);
+			runSet->setForward(forward);
+			runSet->setTurn(turn);
+			runSet->setTargetColorOffset(brightnessOffset);
+		}
+		section->setRunSet(runSet);
+		section->setPID(new Run::PID(kp, ki, kd));
+		gSectionExecutor.addSection(section);
+	}
 }
 
+static void setup(const char* filename)
+{
+	FILE* source = fopen(filename, "r");
+	if(source == NULL) { return; }
+	setup(source);
+	fclose(source);
+}
+
+static void setup()
+{
+	setup("speed.csv");
+	setup("bonus.csv");
+}
+
+//------------------------------
+//  EV3システム構築
 static void user_system_create()
 {
+	//  タッチセンサの初期化に2msのdelayがあるため、ここで待つ
+	tslp_tsk(2);
+	
+	setupDecision();
 	setupInformation();
 	setupMeasurement();
 	setupRun();
 	setupTest();
-
-	//  タッチセンサの初期化に2msのdelayがあるため、ここで待つ
-	tslp_tsk(2);
+	setup();
 
 	//  システム生成完了通知
 	ev3_led_set_color(LED_GREEN);
 	tslp_tsk(500);
 	ev3_led_set_color(LED_OFF);
+}
+
+static void initializeDriver()
+{
+	gRightMotorDriver.reset();
+	gLeftMotorDriver.reset();
+	gTailMotorDriver.reset();
+}
+
+static void initializeRun()
+{
+	gInvertedPendulumBalancer.init();
+}
+
+//------------------------------
+//  EV3システム初期化
+static void user_system_initialize()
+{
+	initializeDriver();
+	initializeRun();
 }
 
 //------------------------------
@@ -185,25 +286,19 @@ static void user_system_execute()
 	}
 	else
 	{
-		while(true)
-		{
-			//
-			//  ボタン操作から動作モード（キャリブレーションor）を決定
-			//
-			{
-				ev3_sta_cyc(EV3_CYC_TRACER);    //  周期ハンドラ開始
-				slp_tsk();                      //  バックボタンが押されるまで待つ
-				ev3_stp_cyc(EV3_CYC_TRACER);    //  周期ハンドラ停止
-			}
-		}
+		ev3_sta_cyc(EV3_CYC_TRACER);    //  周期ハンドラ開始
+		slp_tsk();                      //  バックボタンが押されるまで待つ
+		ev3_stp_cyc(EV3_CYC_TRACER);    //  周期ハンドラ停止
 	}
 }
+
+
 
 //------------------------------
 //  EV3システム破棄
 static void user_system_destroy()
 {
-	//teardownXXX();
+	//  define and call teardownXXX(); if need.
 }
 
 //------------------------------
@@ -211,6 +306,7 @@ static void user_system_destroy()
 void main_task(intptr_t unused)
 {
 	user_system_create();
+	user_system_initialize();
 	user_system_execute();
 	user_system_destroy();
 	ext_tsk();
@@ -229,6 +325,7 @@ void tracer_task(intptr_t exinf)
 	}
 	else
 	{
+		gSectionExecutor.execute();
 	}
 	ext_tsk();
 }

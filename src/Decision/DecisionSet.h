@@ -15,7 +15,7 @@ namespace Decision
 		EComparisonMode mComparisonMode;
 
 	public:
-		DecisionSet(double threashold1, double threashold2, EDecisionTarget decisionTarget, EComparisonMode comparisonMode);
+		DecisionSet();
 
 		void setThreshold1(double threshold1);
 		void setThreshold2(double threshold2);

@@ -2,8 +2,7 @@
 
 namespace Decision
 {
-	DecisionSet::DecisionSet(double threshold1, double threshold2, EDecisionTarget decisionTarget, EComparisonMode comparisonMode) :
-		mThreshold1(threshold1), mThreshold2(threshold2), mDecisionTarget(decisionTarget), mComparisonMode(comparisonMode)
+	DecisionSet::DecisionSet()
 	{
 	}
 	
