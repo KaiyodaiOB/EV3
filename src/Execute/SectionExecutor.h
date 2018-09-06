@@ -14,7 +14,7 @@ namespace Execute
 	public:
 		SectionExecutor();
 		~SectionExecutor();
-		void execute();
+		bool execute();
 		void addSection(Section* section);
 	};
 }  // namespace Execute

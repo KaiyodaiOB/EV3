@@ -265,7 +265,8 @@ static void initializeDriver()
 
 static void initializeRun()
 {
-	gInvertedPendulumBalancer.init();
+	int gyroOffset = 0;
+	gInvertedPendulumBalancer.init(gyroOffset);
 }
 
 //------------------------------
@@ -295,6 +296,15 @@ static void user_system_execute()
 
 
 //------------------------------
+//  EV3システム終了処理
+static void user_system_finalize()
+{
+	gRightMotorDriver.setPWM(0);
+	gLeftMotorDriver.setPWM( 0);
+}
+
+
+//------------------------------
 //  EV3システム破棄
 static void user_system_destroy()
 {
@@ -308,6 +318,7 @@ void main_task(intptr_t unused)
 	user_system_create();
 	user_system_initialize();
 	user_system_execute();
+	user_system_finalize();
 	user_system_destroy();
 	ext_tsk();
 }
@@ -319,13 +330,14 @@ void ev3_cyc_tracer(intptr_t exinf)
 
 void tracer_task(intptr_t exinf)
 {
-	if (ev3_button_is_pressed(BACK_BUTTON))
+	if(ev3_button_is_pressed(BACK_BUTTON))
 	{
 		wup_tsk(MAIN_TASK);
 	}
 	else
 	{
-		gSectionExecutor.execute();
+		bool isFinished = gSectionExecutor.execute();
+		if(isFinished) { wup_tsk(MAIN_TASK); }
 	}
 	ext_tsk();
 }

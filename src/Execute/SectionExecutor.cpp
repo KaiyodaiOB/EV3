@@ -14,20 +14,34 @@ namespace Execute
 		{
 			delete *itr;
 		}
-		delete mSections;
+		std::vector<Section*> tmp;
+		tmp.swap(*mSections);
 	}
 
-	void SectionExecutor::execute()
+	bool SectionExecutor::execute()
 	{
-		Section* currentSection = *(mSections->begin());
+		bool isFinished = false;
+		static auto itr = mSections->begin();
+		Section* currentSection = *itr;
 		currentSection->measure();
 		if(currentSection->decide() == true)
 		{
-			mSections->erase(mSections->begin());
-			currentSection = *(mSections->begin());
-			currentSection->initialize();
+			auto next = itr + 1;
+			if(next == mSections->end())
+			{
+				isFinished = true;
+				goto RETURN;
+			}
+			else
+			{
+				itr++;
+				currentSection = *itr;
+				currentSection->initialize();
+			}
 		}
 		currentSection->run();
+	RETURN:
+		return isFinished;
 	}
 
 	void SectionExecutor::addSection(Section* section)
