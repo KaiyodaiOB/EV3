@@ -18,7 +18,6 @@ namespace Measurement
 
 	void Measurement::execute()
 	{
-		mLCDController.cascadeString(4, "measure");
 		mDeviceInformationUpdater->execute();
 		mRunInformationUpdater->execute();
 	}

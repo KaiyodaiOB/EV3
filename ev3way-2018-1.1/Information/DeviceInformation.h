@@ -1,6 +1,8 @@
 #ifndef INFORMATION_DEVICE_INFORMATION_H
 #define INFORMATION_DEVICE_INFORMATION_H
 
+#include "../Utility/LCDController.h"
+
 namespace Information
 {
 	class DeviceInformation
@@ -17,6 +19,7 @@ namespace Information
 		int  mLeftMotorCount_deg;
 		int  mTailMotorCount_deg;
 		int  mVoltage_mV;
+		Utility::LCDController mLCDController;
 
 	public:
 		DeviceInformation();

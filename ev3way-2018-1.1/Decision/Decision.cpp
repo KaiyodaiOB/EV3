@@ -1,7 +1,8 @@
-#include "Decision/Decision.h"
+//#include "Decision/Decision.h"
+#include "Decision.h"
 #include "Decision/EComparisonMode.h"
 #include "Decision/EDecisionTarget.h"
-#include "Utility/LCDController.h"
+#include "../Utility/LCDController.h"
 
 namespace Decision
 {
@@ -135,13 +136,13 @@ namespace Decision
 
 	bool Decision::execute(EFormingCondition formingCondition, std::vector<DecisionSet*>* decisionSets)
 	{
-		mLCDController.cascadeString(5, "decision");
 		bool isSuccess;
 		if(     formingCondition == eMeetAllDicisions)   { isSuccess = true; }
 		else if(formingCondition == eMeetSingleDicision) { isSuccess = false; }
 		else { return false; }
 		for(auto itr = decisionSets->begin(); itr != decisionSets->end(); itr++)
 		{
+			mLCDController.cascadeString(5, "for loop     ");
 			double value   = 0.0;
 			bool valueBool = false;
 			bool isValid   = true;
@@ -153,6 +154,23 @@ namespace Decision
 			if(     formingCondition == eMeetAllDicisions)   { isSuccess &= isTargetSuccess; }
 			else if(formingCondition == eMeetSingleDicision) { isSuccess |= isTargetSuccess; }
 		}
+		mLCDController.cascadeString(5, "Decision     ");
+		int valueLCD;
+		double valueL = 0.0;
+		bool valueBoolL = false;
+		auto itrL = decisionSets->begin();
+		itrL += 10;
+		valueLCD = getValue(*itrL, mCurrentDeviceInformation, mRunInformation, valueL, valueBoolL);
+			if (valueL == 1) {
+				mLCDController.cascadeString(4, "d touch press = 1");
+			}
+			else if (valueL == 0) {
+				mLCDController.cascadeString(4, "d touch pressg = 0");
+			}
+			else {
+				mLCDController.cascadeString(4, "d touch press = ?");
+			}
+			
 		return isSuccess;
 	}
 

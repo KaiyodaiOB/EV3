@@ -204,6 +204,8 @@ static void setup(FILE*& file)
 			decisionSet->setThreshold2(threshold2);
 			section->addDecisionSet(decisionSet);
 		}
+		//fscanf(file, "%d", &returnWord);
+
 		section->setRun(&gRun);
 		Run::RunSet* runSet = new Run::RunSet();
 		{
@@ -228,7 +230,7 @@ static void setup(const char* filename)
 	if(source == NULL) {
 		gLCDController.cascadeString(0, "no data");
 		return; }
-	gLCDController.cascadeString(0, "setup member");
+//	gLCDController.cascadeString(0, "setup member");
 	setup(source);
 	fclose(source);
 }
@@ -236,7 +238,7 @@ static void setup(const char* filename)
 static void setup()
 {
 	setup("speed.csv");
-	setup("bonus.csv");
+//	setup("bonus.csv");
 }
 
 //------------------------------
@@ -307,10 +309,8 @@ static void user_system_destroy()
 //  メインタスク
 void main_task(intptr_t unused)
 {
-	gLCDController.cascadeString(1, "create");
 	user_system_create();
 	gLCDController.cascadeString(1, "          ");
-	gLCDController.cascadeString(1, "init");
 	user_system_initialize();
 	gLCDController.cascadeString(1, "          ");
 	gLCDController.cascadeString(1, "exe");

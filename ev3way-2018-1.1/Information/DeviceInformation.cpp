@@ -1,4 +1,5 @@
 #include "DeviceInformation.h"
+#include "../Utility/LCDController.h"
 
 namespace Information
 {
@@ -60,6 +61,17 @@ namespace Information
 	void DeviceInformation::setSonarSignal(bool sonarSignal)
 	{
 		mSonarSignal = sonarSignal;
+
+/*		if (mSonarSignal == 1) {
+			mLCDController.cascadeString(1, "sonar sig = 1");
+		}
+		else if (mSonarSignal == 0) {
+			mLCDController.cascadeString(1, "sonar sig = 0");
+		}
+		else {
+			mLCDController.cascadeString(1, "sonar sig = ?");
+		}
+*/
 	}
 
 	bool DeviceInformation::getSonarSignal() const
@@ -70,6 +82,17 @@ namespace Information
 	void DeviceInformation::setIsTouchSensorPressed(bool isPressed)
 	{
 		mIsTouchSensorPressed = isPressed;
+
+		if (mIsTouchSensorPressed == 1) {
+			mLCDController.cascadeString(1, "touch press = 1");
+		}
+		else if (mIsTouchSensorPressed == 0) {
+			mLCDController.cascadeString(1, "touch press = 0");
+		}
+		else {
+			mLCDController.cascadeString(1, "touch press = ?");
+		}
+
 	}
 
 	bool DeviceInformation::getIsTouchSensorPressed() const
