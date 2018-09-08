@@ -1,0 +1,284 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXFileReference section */
+		1E0C81AC212A890C00021DA8 /* ColorSensorDriver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ColorSensorDriver.cpp; sourceTree = "<group>"; };
+		1E0C81AD212A890C00021DA8 /* ColorSensorDriver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorSensorDriver.h; sourceTree = "<group>"; };
+		1E0C81AE212A890C00021DA8 /* GyroSensorDriver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GyroSensorDriver.cpp; sourceTree = "<group>"; };
+		1E0C81AF212A890C00021DA8 /* GyroSensorDriver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GyroSensorDriver.h; sourceTree = "<group>"; };
+		1E0C81B0212A890C00021DA8 /* MotorDriver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MotorDriver.cpp; sourceTree = "<group>"; };
+		1E0C81B1212A890C00021DA8 /* MotorDriver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MotorDriver.h; sourceTree = "<group>"; };
+		1E0C81B2212A890C00021DA8 /* TouchSensorDriver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TouchSensorDriver.cpp; sourceTree = "<group>"; };
+		1E0C81B3212A890C00021DA8 /* TouchSensorDriver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchSensorDriver.h; sourceTree = "<group>"; };
+		1E0C81B4212A890C00021DA8 /* SonarSensorDriver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SonarSensorDriver.cpp; sourceTree = "<group>"; };
+		1E0C81B5212A890C00021DA8 /* SonarSensorDriver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SonarSensorDriver.h; sourceTree = "<group>"; };
+		1E0C81BD212A890C00021DA8 /* CourseInformation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CourseInformation.cpp; sourceTree = "<group>"; };
+		1E0C81BE212A890C00021DA8 /* CourseInformation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseInformation.h; sourceTree = "<group>"; };
+		1E0C81BF212A890C00021DA8 /* DeviceInformation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DeviceInformation.cpp; sourceTree = "<group>"; };
+		1E0C81C0212A890C00021DA8 /* DeviceInformation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceInformation.h; sourceTree = "<group>"; };
+		1E0C81C1212A890C00021DA8 /* ETailAngleType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETailAngleType.h; sourceTree = "<group>"; };
+		1E0C81C2212A890C00021DA8 /* EV3BodyInformation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EV3BodyInformation.cpp; sourceTree = "<group>"; };
+		1E0C81C3212A890C00021DA8 /* EV3BodyInformation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EV3BodyInformation.h; sourceTree = "<group>"; };
+		1E0C81C4212A890C00021DA8 /* RunCorrectionInformation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RunCorrectionInformation.cpp; sourceTree = "<group>"; };
+		1E0C81C5212A890C00021DA8 /* RunCorrectionInformation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RunCorrectionInformation.h; sourceTree = "<group>"; };
+		1E0C81C6212A890C00021DA8 /* RunInformation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RunInformation.cpp; sourceTree = "<group>"; };
+		1E0C81C7212A890C00021DA8 /* RunInformation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RunInformation.h; sourceTree = "<group>"; };
+		1E0C81C8212A890C00021DA8 /* TailAngleInformation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TailAngleInformation.cpp; sourceTree = "<group>"; };
+		1E0C81C9212A890C00021DA8 /* TailAngleInformation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TailAngleInformation.h; sourceTree = "<group>"; };
+		1E0C81CB212A890C00021DA8 /* DeviceInformationUpdater.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DeviceInformationUpdater.cpp; sourceTree = "<group>"; };
+		1E0C81CC212A890C00021DA8 /* DeviceInformationUpdater.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceInformationUpdater.h; sourceTree = "<group>"; };
+		1E0C81CD212A890C00021DA8 /* DirectionMeter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DirectionMeter.cpp; sourceTree = "<group>"; };
+		1E0C81CE212A890C00021DA8 /* DirectionMeter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DirectionMeter.h; sourceTree = "<group>"; };
+		1E0C81CF212A890C00021DA8 /* DistanceMeter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DistanceMeter.cpp; sourceTree = "<group>"; };
+		1E0C81D0212A890C00021DA8 /* DistanceMeter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DistanceMeter.h; sourceTree = "<group>"; };
+		1E0C81D1212A890C00021DA8 /* GrayMeter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GrayMeter.cpp; sourceTree = "<group>"; };
+		1E0C81D2212A890C00021DA8 /* GrayMeter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GrayMeter.h; sourceTree = "<group>"; };
+		1E0C81D3212A890C00021DA8 /* iManualMeter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = iManualMeter.cpp; sourceTree = "<group>"; };
+		1E0C81D4212A890C00021DA8 /* iManualMeter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iManualMeter.h; sourceTree = "<group>"; };
+		1E0C81D5212A890C00021DA8 /* Measurement.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Measurement.cpp; sourceTree = "<group>"; };
+		1E0C81D6212A890C00021DA8 /* Measurement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Measurement.h; sourceTree = "<group>"; };
+		1E0C81D7212A890C00021DA8 /* RunInformationUpdater.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RunInformationUpdater.cpp; sourceTree = "<group>"; };
+		1E0C81D8212A890C00021DA8 /* RunInformationUpdater.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RunInformationUpdater.h; sourceTree = "<group>"; };
+		1E0C81D9212A890C00021DA8 /* VelocityMeter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VelocityMeter.cpp; sourceTree = "<group>"; };
+		1E0C81DA212A890C00021DA8 /* VelocityMeter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VelocityMeter.h; sourceTree = "<group>"; };
+		1E0C81E9212A890C00021DA8 /* app.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = app.cpp; sourceTree = "<group>"; };
+		1E0C81EA212A890C00021DA8 /* app.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = app.h; sourceTree = "<group>"; };
+		1E0C81EB212A890C00021DA8 /* app.cfg */ = {isa = PBXFileReference; lastKnownFileType = text; path = app.cfg; sourceTree = "<group>"; };
+		1E0C81EC212A890C00021DA8 /* Makefile.inc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.pascal; path = Makefile.inc; sourceTree = "<group>"; };
+		1E0C81F1212EF14A00021DA8 /* Test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Test.cpp; sourceTree = "<group>"; };
+		1E0C81F2212EF14A00021DA8 /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
+		1E0C81F6212F0D7200021DA8 /* Speaker.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Speaker.cpp; sourceTree = "<group>"; };
+		1E0C81F7212F0D7200021DA8 /* Speaker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Speaker.h; sourceTree = "<group>"; };
+		1E0C81F82130E5B300021DA8 /* LCDController.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LCDController.cpp; sourceTree = "<group>"; };
+		1E0C81F92130E5B300021DA8 /* LCDController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCDController.h; sourceTree = "<group>"; };
+		1E0C821A2138278600021DA8 /* Decision.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Decision.cpp; sourceTree = "<group>"; };
+		1E0C821B2138278600021DA8 /* Decision.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Decision.h; sourceTree = "<group>"; };
+		1E0C821C2138278600021DA8 /* DecisionSet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DecisionSet.cpp; sourceTree = "<group>"; };
+		1E0C821D2138278600021DA8 /* DecisionSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DecisionSet.h; sourceTree = "<group>"; };
+		1E0C82202138278600021DA8 /* EDecisionTarget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDecisionTarget.h; sourceTree = "<group>"; };
+		1E0C82212138278600021DA8 /* EFormingCondition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EFormingCondition.h; sourceTree = "<group>"; };
+		1E0C82232138278600021DA8 /* Section.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Section.cpp; sourceTree = "<group>"; };
+		1E0C82242138278600021DA8 /* Section.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
+		1E0C82252138278600021DA8 /* SectionExecutor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SectionExecutor.cpp; sourceTree = "<group>"; };
+		1E0C82262138278600021DA8 /* SectionExecutor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectionExecutor.h; sourceTree = "<group>"; };
+		1E0C82282138278600021DA8 /* ETurnSelectionType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETurnSelectionType.h; sourceTree = "<group>"; };
+		1E0C82292138278600021DA8 /* InvertedPendulumBalancer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InvertedPendulumBalancer.cpp; sourceTree = "<group>"; };
+		1E0C822A2138278600021DA8 /* InvertedPendulumBalancer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvertedPendulumBalancer.h; sourceTree = "<group>"; };
+		1E0C822B2138278600021DA8 /* PID.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PID.cpp; sourceTree = "<group>"; };
+		1E0C822C2138278600021DA8 /* PID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PID.h; sourceTree = "<group>"; };
+		1E0C822D2138278600021DA8 /* Run.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Run.cpp; sourceTree = "<group>"; };
+		1E0C822E2138278600021DA8 /* Run.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Run.h; sourceTree = "<group>"; };
+		1E0C822F2138278600021DA8 /* RunSet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RunSet.cpp; sourceTree = "<group>"; };
+		1E0C82302138278600021DA8 /* RunSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RunSet.h; sourceTree = "<group>"; };
+		1E0C82312138278600021DA8 /* TailController.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TailController.cpp; sourceTree = "<group>"; };
+		1E0C82322138278600021DA8 /* TailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TailController.h; sourceTree = "<group>"; };
+		1E0C823321382A9D00021DA8 /* EComparisonMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EComparisonMode.h; sourceTree = "<group>"; };
+		1E0C824A2138586300021DA8 /* balancer_param.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = balancer_param.c; sourceTree = "<group>"; };
+		1E0C824B2138586300021DA8 /* balancer_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = balancer_private.h; sourceTree = "<group>"; };
+		1E0C824C2138586300021DA8 /* balancer.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = balancer.c; sourceTree = "<group>"; };
+		1E0C824D2138586300021DA8 /* balancer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = balancer.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		1E0C8199212A88E200021DA8 = {
+			isa = PBXGroup;
+			children = (
+				1E0C82192138278600021DA8 /* Decision */,
+				1E0C82222138278600021DA8 /* Execute */,
+				1E0C82272138278600021DA8 /* Run */,
+				1E0C81F5212F0D7200021DA8 /* Utility */,
+				1E0C81F0212EF14A00021DA8 /* Test */,
+				1E0C81AB212A890C00021DA8 /* Driver */,
+				1E0C81BC212A890C00021DA8 /* Information */,
+				1E0C81CA212A890C00021DA8 /* Measurement */,
+				1E0C81E9212A890C00021DA8 /* app.cpp */,
+				1E0C81EA212A890C00021DA8 /* app.h */,
+				1E0C81EB212A890C00021DA8 /* app.cfg */,
+				1E0C81EC212A890C00021DA8 /* Makefile.inc */,
+			);
+			sourceTree = "<group>";
+		};
+		1E0C81AB212A890C00021DA8 /* Driver */ = {
+			isa = PBXGroup;
+			children = (
+				1E0C81AC212A890C00021DA8 /* ColorSensorDriver.cpp */,
+				1E0C81AD212A890C00021DA8 /* ColorSensorDriver.h */,
+				1E0C81AE212A890C00021DA8 /* GyroSensorDriver.cpp */,
+				1E0C81AF212A890C00021DA8 /* GyroSensorDriver.h */,
+				1E0C81B0212A890C00021DA8 /* MotorDriver.cpp */,
+				1E0C81B1212A890C00021DA8 /* MotorDriver.h */,
+				1E0C81B2212A890C00021DA8 /* TouchSensorDriver.cpp */,
+				1E0C81B3212A890C00021DA8 /* TouchSensorDriver.h */,
+				1E0C81B4212A890C00021DA8 /* SonarSensorDriver.cpp */,
+				1E0C81B5212A890C00021DA8 /* SonarSensorDriver.h */,
+			);
+			path = Driver;
+			sourceTree = "<group>";
+		};
+		1E0C81BC212A890C00021DA8 /* Information */ = {
+			isa = PBXGroup;
+			children = (
+				1E0C81BD212A890C00021DA8 /* CourseInformation.cpp */,
+				1E0C81BE212A890C00021DA8 /* CourseInformation.h */,
+				1E0C81BF212A890C00021DA8 /* DeviceInformation.cpp */,
+				1E0C81C0212A890C00021DA8 /* DeviceInformation.h */,
+				1E0C81C1212A890C00021DA8 /* ETailAngleType.h */,
+				1E0C81C2212A890C00021DA8 /* EV3BodyInformation.cpp */,
+				1E0C81C3212A890C00021DA8 /* EV3BodyInformation.h */,
+				1E0C81C4212A890C00021DA8 /* RunCorrectionInformation.cpp */,
+				1E0C81C5212A890C00021DA8 /* RunCorrectionInformation.h */,
+				1E0C81C6212A890C00021DA8 /* RunInformation.cpp */,
+				1E0C81C7212A890C00021DA8 /* RunInformation.h */,
+				1E0C81C8212A890C00021DA8 /* TailAngleInformation.cpp */,
+				1E0C81C9212A890C00021DA8 /* TailAngleInformation.h */,
+			);
+			path = Information;
+			sourceTree = "<group>";
+		};
+		1E0C81CA212A890C00021DA8 /* Measurement */ = {
+			isa = PBXGroup;
+			children = (
+				1E0C81CB212A890C00021DA8 /* DeviceInformationUpdater.cpp */,
+				1E0C81CC212A890C00021DA8 /* DeviceInformationUpdater.h */,
+				1E0C81CD212A890C00021DA8 /* DirectionMeter.cpp */,
+				1E0C81CE212A890C00021DA8 /* DirectionMeter.h */,
+				1E0C81CF212A890C00021DA8 /* DistanceMeter.cpp */,
+				1E0C81D0212A890C00021DA8 /* DistanceMeter.h */,
+				1E0C81D1212A890C00021DA8 /* GrayMeter.cpp */,
+				1E0C81D2212A890C00021DA8 /* GrayMeter.h */,
+				1E0C81D3212A890C00021DA8 /* iManualMeter.cpp */,
+				1E0C81D4212A890C00021DA8 /* iManualMeter.h */,
+				1E0C81D5212A890C00021DA8 /* Measurement.cpp */,
+				1E0C81D6212A890C00021DA8 /* Measurement.h */,
+				1E0C81D7212A890C00021DA8 /* RunInformationUpdater.cpp */,
+				1E0C81D8212A890C00021DA8 /* RunInformationUpdater.h */,
+				1E0C81D9212A890C00021DA8 /* VelocityMeter.cpp */,
+				1E0C81DA212A890C00021DA8 /* VelocityMeter.h */,
+			);
+			path = Measurement;
+			sourceTree = "<group>";
+		};
+		1E0C81F0212EF14A00021DA8 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				1E0C81F1212EF14A00021DA8 /* Test.cpp */,
+				1E0C81F2212EF14A00021DA8 /* Test.h */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		1E0C81F5212F0D7200021DA8 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				1E0C81F82130E5B300021DA8 /* LCDController.cpp */,
+				1E0C81F92130E5B300021DA8 /* LCDController.h */,
+				1E0C81F6212F0D7200021DA8 /* Speaker.cpp */,
+				1E0C81F7212F0D7200021DA8 /* Speaker.h */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		1E0C82192138278600021DA8 /* Decision */ = {
+			isa = PBXGroup;
+			children = (
+				1E0C823321382A9D00021DA8 /* EComparisonMode.h */,
+				1E0C821A2138278600021DA8 /* Decision.cpp */,
+				1E0C821B2138278600021DA8 /* Decision.h */,
+				1E0C821C2138278600021DA8 /* DecisionSet.cpp */,
+				1E0C821D2138278600021DA8 /* DecisionSet.h */,
+				1E0C82202138278600021DA8 /* EDecisionTarget.h */,
+				1E0C82212138278600021DA8 /* EFormingCondition.h */,
+			);
+			path = Decision;
+			sourceTree = "<group>";
+		};
+		1E0C82222138278600021DA8 /* Execute */ = {
+			isa = PBXGroup;
+			children = (
+				1E0C82232138278600021DA8 /* Section.cpp */,
+				1E0C82242138278600021DA8 /* Section.h */,
+				1E0C82252138278600021DA8 /* SectionExecutor.cpp */,
+				1E0C82262138278600021DA8 /* SectionExecutor.h */,
+			);
+			path = Execute;
+			sourceTree = "<group>";
+		};
+		1E0C82272138278600021DA8 /* Run */ = {
+			isa = PBXGroup;
+			children = (
+				1E0C824A2138586300021DA8 /* balancer_param.c */,
+				1E0C824B2138586300021DA8 /* balancer_private.h */,
+				1E0C824C2138586300021DA8 /* balancer.c */,
+				1E0C824D2138586300021DA8 /* balancer.h */,
+				1E0C82282138278600021DA8 /* ETurnSelectionType.h */,
+				1E0C82292138278600021DA8 /* InvertedPendulumBalancer.cpp */,
+				1E0C822A2138278600021DA8 /* InvertedPendulumBalancer.h */,
+				1E0C822B2138278600021DA8 /* PID.cpp */,
+				1E0C822C2138278600021DA8 /* PID.h */,
+				1E0C822D2138278600021DA8 /* Run.cpp */,
+				1E0C822E2138278600021DA8 /* Run.h */,
+				1E0C822F2138278600021DA8 /* RunSet.cpp */,
+				1E0C82302138278600021DA8 /* RunSet.h */,
+				1E0C82312138278600021DA8 /* TailController.cpp */,
+				1E0C82322138278600021DA8 /* TailController.h */,
+			);
+			path = Run;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		1E0C819A212A88E200021DA8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+			};
+			buildConfigurationList = 1E0C819D212A88E200021DA8 /* Build configuration list for PBXProject "src" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1E0C8199212A88E200021DA8;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		1E0C819E212A88E200021DA8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		1E0C819F212A88E200021DA8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1E0C819D212A88E200021DA8 /* Build configuration list for PBXProject "src" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E0C819E212A88E200021DA8 /* Debug */,
+				1E0C819F212A88E200021DA8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1E0C819A212A88E200021DA8 /* Project object */;
+}
