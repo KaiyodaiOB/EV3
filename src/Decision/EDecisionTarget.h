@@ -14,7 +14,6 @@ namespace Decision
 		eGyroAngle,
 		eGyroAnglerVelocity,
 		eSonarDistance,
-		eSonarSignal,
 		eTouchStatus,
 		eColorValue,
 		eTailAngle

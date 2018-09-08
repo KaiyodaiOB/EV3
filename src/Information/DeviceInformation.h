@@ -10,7 +10,6 @@ namespace Information
 		int  mGyroAnglerVelocity_dps;
 		int  mGyroOffset;
 		int  mSonarDistance_cm;
-		bool mSonarSignal;
 		bool mIsTouchSensorPressed;
 		int  mBrightness;
 		int  mRightMotorCount_deg;
@@ -28,8 +27,6 @@ namespace Information
 		int  getGyroOffset() const;
 		void setSonarDistance_cm(int sonarDistance_cm);
 		int  getSonarDistance_cm() const;
-		void setSonarSignal(bool sonarSignal);
-		bool getSonarSignal() const;
 		void setIsTouchSensorPressed(bool isPressed);
 		bool getIsTouchSensorPressed() const;
 		void setBrightness(int brightness);

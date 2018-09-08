@@ -71,7 +71,6 @@ namespace Measurement
 		mCurrentDeviceInformation->setTailMotorCount_deg(mTailMotorDriver->getCount());
 		mCurrentDeviceInformation->setIsTouchSensorPressed(mTouchSensorDriver->isPressed());
 		mCurrentDeviceInformation->setSonarDistance_cm(mSonarSensorDriver->getDistance());
-		mCurrentDeviceInformation->setSonarSignal(mSonarSensorDriver->listen());
 		mCurrentDeviceInformation->setVoltage_mV(ev3_battery_voltage_mV());
 	}
 

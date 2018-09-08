@@ -7,7 +7,6 @@ namespace Information
 		mGyroAnglerVelocity_dps(0),
 		mGyroOffset(0),
 		mSonarDistance_cm(0),
-		mSonarSignal(false),
 		mIsTouchSensorPressed(false),
 		mBrightness(0),
 		mRightMotorCount_deg(0),
@@ -55,16 +54,6 @@ namespace Information
 	int  DeviceInformation::getSonarDistance_cm() const
 	{
 		return mSonarDistance_cm;
-	}
-
-	void DeviceInformation::setSonarSignal(bool sonarSignal)
-	{
-		mSonarSignal = sonarSignal;
-	}
-
-	bool DeviceInformation::getSonarSignal() const
-	{
-		return mSonarSignal;
 	}
 
 	void DeviceInformation::setIsTouchSensorPressed(bool isPressed)

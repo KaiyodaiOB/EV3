@@ -42,10 +42,7 @@ namespace Decision
 				value = currentDeviceInformation->getGyroAnglerVelocity_dps();
 				break;
 			case eSonarDistance:
-				value = currentDeviceInformation->getGyroOffset();
-				break;
-			case eSonarSignal:
-				valueBool = currentDeviceInformation->getSonarSignal();
+				value = currentDeviceInformation->getSonarDistance_cm();
 				break;
 			case eTouchStatus:
 				valueBool = currentDeviceInformation->getIsTouchSensorPressed();
@@ -121,7 +118,6 @@ namespace Decision
 				isValid = compare(decisionSet->getComparisonMode(), value, decisionSet->getThreshold1(), decisionSet->getThreshold2(), isTargetSuccess);
 				break;
 			case eGrayDetectionStatus:
-			case eSonarSignal:
 			case eTouchStatus:
 				isValid = compare(decisionSet->getComparisonMode(), valueBool, isTargetSuccess);
 				break;
