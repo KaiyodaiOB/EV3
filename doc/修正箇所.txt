@@ -1,0 +1,16 @@
+○PID
+　・mErrorOld = mErrorNewを削除
+　　　I制御は+=で過去の値が反映されている
+　・mErrorNew  = valueCurrent - valueTarget;
+　　　→mErrorNew = valueTarget - valueCurrent;
+　・proportional = mKp * (mErrorNew)
+　・double derivative = mKd * (mErrorNew) / mTimeSec;
+　　　PDは過去の値不要
+　・return (int)(proportional + integral + derivative);
+　　　tailControllerのpwmがint
+
+
+○TailController
+　・int pwm = mPID->execute((double)tailEncoderValue, (double)targetAngle);
+　　　PID->executeはdoubleで取り扱っている。
+
